@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   FlatList, Image,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text, TextInput,
+  Text, TextInput, TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -13,11 +13,20 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {blue, grey} from "../../../data/COLORS";
 import MainButton from "../../../components/MainButton";
+import {MainContext} from "../../../../App";
 
 export default function HomeItem({item})  {
 
+  const data = useContext(MainContext)
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        data.setSelectedItem(item);
+        data.setIsVisibleDM(true)
+      }}
+    >
       <View style={styles.mainBox}>
         <Image source={item.img} style={styles.img}/>
         <Text style={styles.title}>{item.title}</Text>
@@ -27,7 +36,7 @@ export default function HomeItem({item})  {
         <View style={{top: -40}}><MainButton/></View>
 
       </View>
-    </View>
+    </TouchableOpacity>
 
   );
 };

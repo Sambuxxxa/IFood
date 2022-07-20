@@ -5,6 +5,8 @@ export const PRODUCTS = [
     type: 'Burger',
     price: 120,
     img: require('../assets/images/products/burgers/BigTasty.png'),
+    img2: require('../assets/images/burger.png'),
+    desc: 'Натуральная говядина в сочетании со свежими овощами и плавленым сыром «Эмменталь»',
     amount: 1,
   },
   {
@@ -13,6 +15,8 @@ export const PRODUCTS = [
     type: 'Burger',
     price: 130,
     img: require('../assets/images/products/burgers/Dbl_Royal_Cheese.png'),
+    img2: require('../assets/images/burger.png'),
+    desc: 'Наш двойной фаворит - Royal DoubleChizburger. В самом сердце!',
     amount: 1,
   },
   {
@@ -21,6 +25,8 @@ export const PRODUCTS = [
     type: 'Burger',
     price: 150,
     img: require('../assets/images/products/burgers/DoubleCheeseburger.png'),
+    img2: require('../assets/images/burger.png'),
+    desc: 'Два стейка из натуральной говядины, два кусочка сыра Чеддер, лук, горчица, кетчуп, булочка',
     amount: 1,
   },
   {
@@ -29,6 +35,8 @@ export const PRODUCTS = [
     type: 'Burger',
     price: 200,
     img: require('../assets/images/products/burgers/McChicken.png'),
+    img2: require('../assets/images/burger.png'),
+    desc: 'Куриный фарш, обжаренный в хрустящей панировке, и свежий салат, приправленный изысканным соусом, в булочке пшеничной муки с кунжутом',
     amount: 1,
   },
   {
@@ -37,6 +45,8 @@ export const PRODUCTS = [
     type: 'Burger',
     price: 140,
     img: require('../assets/images/products/burgers/Royal_Cheese.png'),
+    img2: require('../assets/images/burger.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
   {
@@ -45,6 +55,8 @@ export const PRODUCTS = [
     type: 'Pizza',
     price: 250,
     img: require('../assets/images/products/pizzas/semeynaya.png'),
+    img2: require('../assets/images/pizza.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
   {
@@ -53,6 +65,8 @@ export const PRODUCTS = [
     type: 'Pizza',
     price: 300,
     img: require('../assets/images/products/pizzas/drakon.png'),
+    img2: require('../assets/images/pizza.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
   {
@@ -61,6 +75,8 @@ export const PRODUCTS = [
     type: 'Pizza',
     price: 290,
     img: require('../assets/images/products/pizzas/pitstsa-chetyre-sezona.png'),
+    img2: require('../assets/images/pizza.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
   {
@@ -69,6 +85,8 @@ export const PRODUCTS = [
     type: 'Pizza',
     price: 260,
     img: require('../assets/images/products/pizzas/margarita.png'),
+    img2: require('../assets/images/pizza.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
   {
@@ -77,6 +95,8 @@ export const PRODUCTS = [
     type: 'Pizza',
     price: 250,
     img: require('../assets/images/products/pizzas/vegetarianskaya.png'),
+    img2: require('../assets/images/pizza.png'),
+    desc: 'Королевский чизбургер является настоящим фаворитом. Как он может не быть?',
     amount: 1,
   },
 ]
