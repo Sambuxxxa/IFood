@@ -11,7 +11,7 @@ export const PRODUCTS = [
   },
   {
     id: 2,
-    title: 'Дабл Роял Чизбургер',
+    title: 'Дабл Роял',
     type: 'Burger',
     price: 130,
     img: require('../assets/images/products/burgers/Dbl_Royal_Cheese.png'),

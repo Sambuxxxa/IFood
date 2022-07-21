@@ -1,28 +1,36 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text, TextInput,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useContext} from 'react';
+import {StatusBar, StyleSheet, TextInput, View,} from 'react-native';
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {grey, nightBlue} from "../../../data/COLORS";
+import {PRODUCTS} from "../../../data/PRODUCTS";
+import {SearchContext} from "../Search";
 
-export default function Header()  {
+export default function Header() {
+
+  const data = useContext(SearchContext)
+  function search(text) {
+    if (text === '') {
+      data.setSearchedList(PRODUCTS)
+    }
+    data.setSearchedList(PRODUCTS.filter(item => {
+      return(item.title.toLowerCase().includes(text))
+    }))
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.inpBox}>
-        <Ionicons name="search-outline" size={30} color="white" />
+        <Ionicons name="search-outline" size={30} color="white"/>
         <TextInput
           placeholder={'Искать...'}
           placeholderTextColor={'grey'}
           style={styles.inp}
           caretHidden={true}
+          onChangeText={(text) => {
+            search(text.toLowerCase())
+          }}
+
         />
       </View>
       <StatusBar backgroundColor={nightBlue}/>
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingHorizontal: 10,
     marginHorizontal: 20,
-    marginTop: 5
+    marginVertical: 5
   },
   inp: {
     color: '#fff',

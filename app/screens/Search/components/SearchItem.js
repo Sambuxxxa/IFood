@@ -4,7 +4,7 @@ import {grey} from "../../../data/COLORS";
 import MainButton from "../../../components/MainButton";
 import {MainContext} from "../../../../App";
 
-export default function HomeItem({item}) {
+export default function SearchItem({item}) {
 
   const data = useContext(MainContext)
 
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     height: 300,
     width: 150,
     marginHorizontal: 5,
+    marginBottom: 10,
   },
   mainBox: {
     height: 250,

@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
-import {StyleSheet, View,} from 'react-native';
+import {StyleSheet,} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from "./app/screens/Home/Home";
-import NewOrder from "./app/screens/NewOrder/NewOrder";
 import Cart from "./app/screens/Cart/Cart";
 import {NavigationContainer} from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import {grey, nightBlue} from "./app/data/COLORS";
-import {BoxShadow} from "react-native-shadow"
-import {shadowOpt} from "./app/data/shadowOpt";
+import {nightBlue} from "./app/data/COLORS";
 import DescriptionModal from "./app/screens/modalScreens/DescriptionModal";
 import {PRODUCTS} from "./app/data/PRODUCTS";
+import Search from "./app/screens/Search/Search";
+import Liked from "./app/screens/Liked/Liked";
+import Foundation from "react-native-vector-icons/Foundation";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,10 +21,42 @@ export default function App() {
   const [selectedItem, setSelectedItem] = useState(PRODUCTS[0]);
   const [isVisibleDM, setIsVisibleDM] = useState(false);
 
+  const [cartList, setCartList] = useState([])
+
+  const [clearButs, setClearButs] = useState(false);
+
+  const addToCartList = (box) => {
+    cartList.includes(item => {
+      return (item.title.toLowerCase().includes(text))
+    })
+    setCartList([
+        ...cartList,
+        box
+      ]
+    )
+  }
+  const deleteFromCartList = (box) => {
+    setCartList((prevState) =>
+      prevState.filter((item) => {
+        if (item.id === box.id) {
+          return null;
+        } else {
+          return item;
+        }
+      })
+    )
+  }
+
   const MainData = {
     selectedItem,
     setSelectedItem,
     setIsVisibleDM,
+    addToCartList,
+    cartList,
+    setCartList,
+    deleteFromCartList,
+    clearButs,
+    setClearButs
   }
 
   return (
@@ -52,16 +83,22 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name="NewOrder"
-            component={NewOrder}
+            name="Liked"
+            component={Liked}
+            options={{
+              tabBarLabel: ' ',
+              tabBarIcon: ({color, size}) => (
+                <Foundation name="heart" size={24} color={color}/>
+              )
+            }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={Search}
             options={{
               tabBarLabel: '',
               tabBarIcon: ({color, size}) => (
-                // <BoxShadow setting={shadowOpt}>
-                <View style={styles.plus}>
-                  <AntDesign name="plus" size={45} color={grey}/>
-                </View>
-                // </BoxShadow>
+                <Ionicons name="search-outline" size={size} color={color}/>
               )
             }}
           />
