@@ -33,6 +33,13 @@ export default function Home() {
         horizontal={true}
         style={{marginTop: 10, marginHorizontal: 10}}
       />
+      <Text style={styles.title}>Пиццы:</Text>
+      <FlatList
+        data={pizzasData}
+        renderItem={({item}) => (<HomeItem item={item}/>)}
+        horizontal={true}
+        style={{marginTop: 10, marginHorizontal: 10}}
+      />
 
       <StatusBar backgroundColor={nightBlue}/>
     </ScrollView>

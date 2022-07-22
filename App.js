@@ -5,7 +5,7 @@ import Home from "./app/screens/Home/Home";
 import Cart from "./app/screens/Cart/Cart";
 import {NavigationContainer} from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import {nightBlue} from "./app/data/COLORS";
+import {grey, nightBlue} from "./app/data/COLORS";
 import DescriptionModal from "./app/screens/modalScreens/DescriptionModal";
 import {PRODUCTS} from "./app/data/PRODUCTS";
 import Search from "./app/screens/Search/Search";
@@ -23,12 +23,7 @@ export default function App() {
 
   const [cartList, setCartList] = useState([])
 
-  const [clearButs, setClearButs] = useState(false);
-
   const addToCartList = (box) => {
-    cartList.includes(item => {
-      return (item.title.toLowerCase().includes(text))
-    })
     setCartList([
         ...cartList,
         box
@@ -55,8 +50,6 @@ export default function App() {
     cartList,
     setCartList,
     deleteFromCartList,
-    clearButs,
-    setClearButs
   }
 
   return (
