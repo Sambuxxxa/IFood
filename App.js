@@ -98,22 +98,22 @@ export default function App() {
             }}
           />
           <Tab.Screen
+          name="Search"
+          component={Search}
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: ({color, size}) => (
+              <Ionicons name="search-outline" size={size} color={color}/>
+            )
+          }}
+        />
+          <Tab.Screen
             name="Liked"
             component={Liked}
             options={{
               tabBarLabel: ' ',
               tabBarIcon: ({color, size}) => (
                 <Foundation name="heart" size={24} color={color}/>
-              )
-            }}
-          />
-          <Tab.Screen
-            name="Search"
-            component={Search}
-            options={{
-              tabBarLabel: '',
-              tabBarIcon: ({color, size}) => (
-                <Ionicons name="search-outline" size={size} color={color}/>
               )
             }}
           />
