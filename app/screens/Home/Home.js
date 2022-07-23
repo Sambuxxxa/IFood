@@ -18,6 +18,11 @@ export default function Home() {
       return (item)
     }
   });
+  const rollsData = PRODUCTS.filter(item => {
+    if (item.type === 'Roll') {
+      return (item)
+    }
+  });
 
   return (
     <ScrollView style={styles.container}>
@@ -34,6 +39,13 @@ export default function Home() {
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
         style={{marginTop: 10, marginHorizontal: 10}}
+      />
+      <Text style={styles.title}>Роллы:</Text>
+      <FlatList
+        data={rollsData}
+        renderItem={({item}) => (<HomeItem item={item}/>)}
+        horizontal={true}
+        style={{marginVertical: 10, marginHorizontal: 10}}
       />
       <StatusBar backgroundColor={nightBlue}/>
     </ScrollView>

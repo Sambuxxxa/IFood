@@ -17,52 +17,51 @@ export default function DescriptionModal({isVisibleDM}) {
       visible={isVisibleDM}
       style={styles.container}
     >
-      <View style={styles.container}>
-        <ImageBackground source={require('../../assets/images/background.png')} resizeMode="cover" style={styles.image}/>
+      <ImageBackground source={require('../../assets/images/background.png')} style={styles.container}>
 
-        <View style={styles.header}>
-          <TouchableOpacity style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
-                            onPress={() => {
-                              data.setIsVisibleDM(prevState => !prevState)
-                            }}>
-            <Entypo name="chevron-thin-left" size={24} color="white"/>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
-            <View style={{opacity: 10}}>
-              <Foundation name="heart" size={24} color={'white'}/>
-            </View>
-          </TouchableOpacity>
-        </View>
 
-        <View style={styles.mainBox}>
-
-          <Image source={item.img2} style={styles.img}/>
-
-          <View style={styles.descBox}>
-            <View style={styles.nPBox}>
-              <View>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.desc}>{item.type}</Text>
+          <View style={styles.header}>
+            <TouchableOpacity style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
+                              onPress={() => {
+                                data.setIsVisibleDM(prevState => !prevState)
+                              }}>
+              <Entypo name="chevron-thin-left" size={24} color="white"/>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
+              <View style={{opacity: 10}}>
+                <Foundation name="heart" size={24} color={'white'}/>
               </View>
-              <View style={{flexDirection: 'row'}}>
-                <Text style={{fontSize: 20, fontWeight: '800', color: blue, top: 15}}>₴</Text>
-                <Text style={styles.price}>{item.price}</Text>
-              </View>
-            </View>
-            <View style={{marginHorizontal: 30, marginTop: 5}}>
-              <Text style={styles.desc}>
-                {item.desc}
-              </Text>
-            </View>
-            <TouchableOpacity
-              style={styles.butContainer}>
-              <MaterialIcons name="add-shopping-cart" size={24} color={grey}/>
-              <Text style={styles.butText}>Добавить</Text>
             </TouchableOpacity>
           </View>
-        </View>
 
-      </View>
+          <View style={styles.mainBox}>
+
+            <Image source={item.img2} style={styles.img}/>
+
+            <View style={styles.descBox}>
+              <View style={styles.nPBox}>
+                <View>
+                  <Text style={styles.title}>{item.title}</Text>
+                  <Text style={styles.desc}>{item.type}</Text>
+                </View>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={{fontSize: 20, fontWeight: '800', color: blue, top: 15}}>₴</Text>
+                  <Text style={styles.price}>{item.price}</Text>
+                </View>
+              </View>
+              <View style={{marginHorizontal: 30, marginTop: 5}}>
+                <Text style={styles.desc}>
+                  {item.desc}
+                </Text>
+              </View>
+              <TouchableOpacity
+                style={styles.butContainer}>
+                <MaterialIcons name="add-shopping-cart" size={24} color={grey}/>
+                <Text style={styles.butText}>Добавить</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+      </ImageBackground>
       <StatusBar backgroundColor={"#2E3542"}/>
     </Modal>
   );
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
   butBox: {
     height: 50,
     width: 50,
-    backgroundColor: 'grey',
+    backgroundColor: nightBlue,
     opacity: 0.5,
     borderRadius: 15,
     alignItems: 'center',
