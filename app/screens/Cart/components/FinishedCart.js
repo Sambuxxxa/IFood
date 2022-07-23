@@ -16,7 +16,6 @@ export default function FinishedCart({setIsFinished}) {
         style={styles.containerBut}
         onPressOut={() => {
           data.setCartList([])
-          data.setButColor({bg: '#fff', items: grey})
           setIsFinished(false)
         }}>
         <AntDesign name="left" size={24} color={grey}/>

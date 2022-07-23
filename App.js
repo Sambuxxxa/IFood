@@ -22,6 +22,7 @@ export default function App() {
   const [isVisibleDM, setIsVisibleDM] = useState(false);
 
   const [cartList, setCartList] = useState([])
+  const [likedList, setLikedList] = useState([]);
 
   const addToCartList = (box) => {
     setCartList([
@@ -41,6 +42,23 @@ export default function App() {
       })
     )
   }
+  const addToLikedList = (item) => {
+    setLikedList((prevState) => [
+      ...likedList,
+      item
+    ])
+  }
+  const deleteFromLikedList = (box) => {
+    setLikedList((prevState) =>
+      prevState.filter((item) => {
+        if (item.id === box.id) {
+          return null;
+        } else {
+          return item;
+        }
+      })
+    )
+  }
 
   const MainData = {
     selectedItem,
@@ -50,6 +68,10 @@ export default function App() {
     cartList,
     setCartList,
     deleteFromCartList,
+    likedList,
+    setLikedList,
+    addToLikedList,
+    deleteFromLikedList,
   }
 
   return (

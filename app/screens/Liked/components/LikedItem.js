@@ -5,11 +5,8 @@ import MainButton from "../../../components/MainButton";
 import {MainContext} from "../../../../App";
 import Foundation from "react-native-vector-icons/Foundation";
 
-export default function HomeItem({item}) {
+export default function LikedItem({item}) {
   const data = useContext(MainContext)
-
-  const [isInLikedList, setIsInLikedList] = useState(false);
-
   return (
     <TouchableOpacity
       style={styles.container}
@@ -25,14 +22,10 @@ export default function HomeItem({item}) {
         <Text style={styles.title2}>₴{item.price}</Text>
 
         <View style={{top: -40}}><MainButton item={item}/></View>
-
         <TouchableOpacity
           style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
-          onPress={() => {
-            isInLikedList ? data.deleteFromLikedList(item) : data.addToLikedList(item)
-            setIsInLikedList(prevState => !prevState)
-          }}>
-          <Foundation name="heart" size={24} color={isInLikedList ? 'red' : 'white'}/>
+          onPress={() => {data.deleteFromLikedList(item)}}>
+          <Foundation name="heart" size={24} color={'red'}/>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
@@ -46,6 +39,7 @@ const styles = StyleSheet.create({
     height: 300,
     width: 150,
     marginHorizontal: 5,
+    marginVertical: 5,
   },
   mainBox: {
     height: 250,
@@ -89,5 +83,4 @@ const styles = StyleSheet.create({
     top: -350,
     left: 90,
   },
-
 });
