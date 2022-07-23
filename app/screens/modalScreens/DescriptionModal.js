@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Image, Modal, StatusBar, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
+import {Image, ImageBackground, Modal, StatusBar, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
 import {MainContext} from "../../../App";
 import {blue, grey, nightBlue} from "../../data/COLORS";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -18,6 +18,7 @@ export default function DescriptionModal({isVisibleDM}) {
       style={styles.container}
     >
       <View style={styles.container}>
+        <ImageBackground source={require('../../assets/images/background.png')} resizeMode="cover" style={styles.image}/>
 
         <View style={styles.header}>
           <TouchableOpacity style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
@@ -102,6 +103,10 @@ const styles = StyleSheet.create({
     height: 500,
     alignSelf: 'center',
     top: -150
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
   },
   descBox: {
     height: '100%',
