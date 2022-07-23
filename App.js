@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {StyleSheet,} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from "./app/screens/Home/Home";
 import Cart from "./app/screens/Cart/Cart";
 import {NavigationContainer} from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import {grey, nightBlue} from "./app/data/COLORS";
+import {nightBlue} from "./app/data/COLORS";
 import DescriptionModal from "./app/screens/modalScreens/DescriptionModal";
 import {PRODUCTS} from "./app/data/PRODUCTS";
 import Search from "./app/screens/Search/Search";
@@ -43,7 +42,7 @@ export default function App() {
     )
   }
   const addToLikedList = (item) => {
-    setLikedList((prevState) => [
+    setLikedList(() => [
       ...likedList,
       item
     ])
@@ -92,7 +91,7 @@ export default function App() {
             component={Home}
             options={{
               tabBarLabel: ' ',
-              tabBarIcon: ({color, size}) => (
+              tabBarIcon: ({color}) => (
                 <Ionicons name="home-outline" size={26} color={color}/>
               ),
             }}
@@ -112,7 +111,7 @@ export default function App() {
             component={Liked}
             options={{
               tabBarLabel: ' ',
-              tabBarIcon: ({color, size}) => (
+              tabBarIcon: ({color}) => (
                 <Foundation name="heart" size={24} color={color}/>
               )
             }}
@@ -122,7 +121,7 @@ export default function App() {
             component={Cart}
             options={{
               tabBarLabel: ' ',
-              tabBarIcon: ({color, size}) => (
+              tabBarIcon: ({color}) => (
                 <Ionicons name="cart-outline" size={28} color={color}/>
               )
             }}
@@ -135,14 +134,3 @@ export default function App() {
   );
 };
 
-const styles = StyleSheet.create({
-  plus: {
-    height: 50,
-    width: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 50,
-    top: -10,
-  }
-});
