@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
 import {grey} from "../../../data/COLORS";
-import MainButton from "../../../components/MainButton";
+import MainButton from "../../../coreComponents/MainButton";
 import {MainContext} from "../../../../App";
 
 export default function SearchItem({item}) {

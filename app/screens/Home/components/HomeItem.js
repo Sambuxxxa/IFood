@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
 import {grey} from "../../../data/COLORS";
-import MainButton from "../../../components/MainButton";
+import MainButton from "../../../coreComponents/MainButton";
 import {MainContext} from "../../../../App";
 import Foundation from "react-native-vector-icons/Foundation";
 
