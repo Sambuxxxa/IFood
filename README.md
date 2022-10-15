@@ -7,7 +7,7 @@ A mobile responsive apps for ios and android using React Native
 
 Clone the repo
 ```
-git clone https://github.com/Sambuxxxa/IShop.git
+git clone https://github.com/Sambuxxxa/IFood.git
 ```
 On your project directory
 
