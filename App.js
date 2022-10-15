@@ -23,13 +23,6 @@ export default function App() {
   const [cartList, setCartList] = useState([])
   const [likedList, setLikedList] = useState([]);
 
-  // const addToCartList = (box) => {
-  //   setCartList([
-  //       ...cartList,
-  //       box
-  //     ]
-  //   )
-  // }
   const deleteFromCartList = (box) => {
     setCartList((prevState) =>
       prevState.filter((item) => {
