@@ -53,10 +53,10 @@ export default function App() {
       item
     ])
   }
-  const deleteFromLikedList = (box) => {
+  const deleteFromLikedList = (el) => {
     setLikedList((prevState) =>
       prevState.filter((item) => {
-        if (item.id === box.id) {
+        if (item.id === el.id) {
           return null;
         } else {
           return item;

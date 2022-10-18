@@ -1,14 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
 import {grey} from "../../../data/COLORS";
-import MainButton from "../../../coreComponents/MainButton";
+import MainButton from "../../../Components/MainButton";
 import {MainContext} from "../../../../App";
 import Foundation from "react-native-vector-icons/Foundation";
 
 export default function HomeItem({item}) {
   const data = useContext(MainContext)
-
-  const [isInLikedList, setIsInLikedList] = useState(false);
 
   return (
     <TouchableOpacity
@@ -29,10 +27,13 @@ export default function HomeItem({item}) {
         <TouchableOpacity
           style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
           onPress={() => {
-            isInLikedList ? data.deleteFromLikedList(item) : data.addToLikedList(item)
-            setIsInLikedList(prevState => !prevState)
+            if (data.likedList.includes(item)) {
+              data.deleteFromLikedList(item)
+            } else {
+              data.addToLikedList(item)
+            }
           }}>
-          <Foundation name="heart" size={24} color={isInLikedList ? 'red' : 'white'}/>
+          <Foundation name="heart" size={24} color={data.likedList.includes(item) ? 'red' : 'white'}/>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

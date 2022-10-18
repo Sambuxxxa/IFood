@@ -7,19 +7,17 @@ import Foundation from "react-native-vector-icons/Foundation";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export default function DescriptionModal({isVisibleDM}) {
-
   const data = useContext(MainContext)
   const item = data.selectedItem
 
   return (
     <Modal
+      onRequestClose={() => data.setIsVisibleDM(prevState => !prevState)}
       animationType={"slide"}
       visible={isVisibleDM}
       style={styles.container}
     >
       <ImageBackground source={require('../../assets/images/background.png')} style={styles.container}>
-
-
           <View style={styles.header}>
             <TouchableOpacity style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
                               onPress={() => {
@@ -27,9 +25,17 @@ export default function DescriptionModal({isVisibleDM}) {
                               }}>
               <Entypo name="chevron-thin-left" size={24} color="white"/>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
+            <TouchableOpacity
+              onPress={() => {
+                if (data.likedList.includes(item)) {
+                  data.deleteFromLikedList(item)
+                } else {
+                  data.addToLikedList(item)
+                }
+              }}
+              style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
               <View style={{opacity: 10}}>
-                <Foundation name="heart" size={24} color={'white'}/>
+                <Foundation name="heart" size={24} color={data.likedList.includes(item) ? 'red' : 'white'}/>
               </View>
             </TouchableOpacity>
           </View>

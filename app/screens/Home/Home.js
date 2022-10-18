@@ -1,13 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {FlatList, ScrollView, StatusBar, StyleSheet, Text,} from 'react-native';
 import {nightBlue} from "../../data/COLORS";
 import {PRODUCTS} from "../../data/PRODUCTS";
 import HomeItem from "./components/HomeItem";
-import {MainContext} from "../../../App";
 
 export default function Home() {
-  const data = useContext(MainContext)
-
   const burgersData = PRODUCTS.filter(item => {
     if (item.type === 'Burger') {
       return (item)
@@ -28,6 +25,7 @@ export default function Home() {
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Бургеры:</Text>
       <FlatList
+        showsHorizontalScrollIndicator={false}
         data={burgersData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
@@ -35,6 +33,7 @@ export default function Home() {
       />
       <Text style={styles.title}>Пиццы:</Text>
       <FlatList
+        showsHorizontalScrollIndicator={false}
         data={pizzasData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
@@ -42,6 +41,7 @@ export default function Home() {
       />
       <Text style={styles.title}>Роллы:</Text>
       <FlatList
+        showsHorizontalScrollIndicator={false}
         data={rollsData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
@@ -64,5 +64,4 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 10,
   },
-
 });
