@@ -14,16 +14,12 @@ export default function HomeItem({item}) {
       onPress={() => {
         data.setSelectedItem(item);
         data.setIsVisibleDM(true)
-      }}
-    >
+      }}>
       <View style={styles.mainBox}>
         <Image source={item.img} style={styles.img}/>
         <Text style={styles.title}>{item.title}</Text>
-
         <Text style={styles.title2}>₴{item.price}</Text>
-
         <View style={{top: -40}}><MainButton item={item}/></View>
-
         <TouchableOpacity
           style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
           onPress={() => {
@@ -37,7 +33,6 @@ export default function HomeItem({item}) {
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
-
   );
 };
 

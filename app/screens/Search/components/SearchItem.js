@@ -5,7 +5,6 @@ import MainButton from "../../../Components/MainButton";
 import {MainContext} from "../../../../App";
 
 export default function SearchItem({item}) {
-
   const data = useContext(MainContext)
 
   return (
@@ -14,19 +13,14 @@ export default function SearchItem({item}) {
       onPress={() => {
         data.setSelectedItem(item);
         data.setIsVisibleDM(true)
-      }}
-    >
+      }}>
       <View style={styles.mainBox}>
         <Image source={item.img} style={styles.img}/>
         <Text style={styles.title}>{item.title}</Text>
-
         <Text style={styles.title2}>₴{item.price}</Text>
-
         <View style={{top: -40}}><MainButton item={item}/></View>
-
       </View>
     </TouchableOpacity>
-
   );
 };
 
@@ -69,5 +63,4 @@ const styles = StyleSheet.create({
     height: 50,
     top: -40
   }
-
 });

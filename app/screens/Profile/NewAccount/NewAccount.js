@@ -6,7 +6,6 @@ import auth from '@react-native-firebase/auth';
 
 const NewAccount = ({setLogIn}) => {
   const data = useContext(AuthContext)
-
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [err, setErr] = useState('');
@@ -35,12 +34,9 @@ const NewAccount = ({setLogIn}) => {
           if (error.code === 'auth/email-already-in-use') {
             setErr('That email address is already in use!');
           }
-
           if (error.code === 'auth/invalid-email') {
             setErr('That email address is invalid!');
           }
-
-          console.error(error);
         });
     }
   }
@@ -65,15 +61,12 @@ const NewAccount = ({setLogIn}) => {
           secureTextEntry={true}
           style={[styles.inp, {borderTopWidth: 0.5, borderTopColor: '#fff'}]}/>
       </View>
-
       <Text style={styles.error}>{err}</Text>
-
       <TouchableOpacity
         onPress={() => createAccount()}
         style={styles.butBox}>
         <Text style={styles.butText}>Создать аккаунт</Text>
       </TouchableOpacity>
-
       <View style={styles.bottomTextBox}>
         <Text style={{color: '#fff'}}>Уже есть аккаун? </Text>
         <TouchableOpacity

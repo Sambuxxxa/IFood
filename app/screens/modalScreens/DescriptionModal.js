@@ -15,58 +15,53 @@ export default function DescriptionModal({isVisibleDM}) {
       onRequestClose={() => data.setIsVisibleDM(prevState => !prevState)}
       animationType={"slide"}
       visible={isVisibleDM}
-      style={styles.container}
-    >
+      style={styles.container}>
       <ImageBackground source={require('../../assets/images/background.png')} style={styles.container}>
-          <View style={styles.header}>
-            <TouchableOpacity style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
-                              onPress={() => {
-                                data.setIsVisibleDM(prevState => !prevState)
-                              }}>
-              <Entypo name="chevron-thin-left" size={24} color="white"/>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                if (data.likedList.includes(item)) {
-                  data.deleteFromLikedList(item)
-                } else {
-                  data.addToLikedList(item)
-                }
-              }}
-              style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
-              <View style={{opacity: 10}}>
-                <Foundation name="heart" size={24} color={data.likedList.includes(item) ? 'red' : 'white'}/>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.mainBox}>
-
-            <Image source={item.img2} style={styles.img}/>
-
-            <View style={styles.descBox}>
-              <View style={styles.nPBox}>
-                <View>
-                  <Text style={styles.title}>{item.title}</Text>
-                  <Text style={styles.desc}>{item.type}</Text>
-                </View>
-                <View style={{flexDirection: 'row'}}>
-                  <Text style={{fontSize: 20, fontWeight: '800', color: blue, top: 15}}>₴</Text>
-                  <Text style={styles.price}>{item.price}</Text>
-                </View>
-              </View>
-              <View style={{marginHorizontal: 30, marginTop: 5}}>
-                <Text style={styles.desc}>
-                  {item.desc}
-                </Text>
-              </View>
-              <TouchableOpacity
-                style={styles.butContainer}>
-                <MaterialIcons name="add-shopping-cart" size={24} color={grey}/>
-                <Text style={styles.butText}>Добавить</Text>
-              </TouchableOpacity>
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
+            onPress={() => data.setIsVisibleDM(prevState => !prevState)}>
+            <Entypo name="chevron-thin-left" size={24} color="white"/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              if (data.likedList.includes(item)) {
+                data.deleteFromLikedList(item)
+              } else {
+                data.addToLikedList(item)
+              }
+            }}
+            style={[styles.butBox, {marginLeft: 80, marginTop: 20}]}>
+            <View style={{opacity: 10}}>
+              <Foundation name="heart" size={24} color={data.likedList.includes(item) ? 'red' : 'white'}/>
             </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.mainBox}>
+          <Image source={item.img2} style={styles.img}/>
+          <View style={styles.descBox}>
+            <View style={styles.nPBox}>
+              <View>
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.desc}>{item.type}</Text>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={{fontSize: 20, fontWeight: '800', color: blue, top: 15}}>₴</Text>
+                <Text style={styles.price}>{item.price}</Text>
+              </View>
+            </View>
+            <View style={{marginHorizontal: 30, marginTop: 5}}>
+              <Text style={styles.desc}>
+                {item.desc}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.butContainer}>
+              <MaterialIcons name="add-shopping-cart" size={24} color={grey}/>
+              <Text style={styles.butText}>Добавить</Text>
+            </TouchableOpacity>
           </View>
+        </View>
       </ImageBackground>
       <StatusBar backgroundColor={"#2E3542"}/>
     </Modal>

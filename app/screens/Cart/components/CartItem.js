@@ -7,7 +7,6 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 
 export default function CartItem({item}) {
   const data = useContext(MainContext)
-
   const [count, setCount] = useState(item.amount);
 
   return (
@@ -16,22 +15,16 @@ export default function CartItem({item}) {
       onPress={() => {
         data.setSelectedItem(item);
         data.setIsVisibleDM(true)
-      }}
-    >
-
+      }}>
       <Image source={item.img} style={{height: 90, width: 90, alignSelf: 'center', marginHorizontal: 5, flex: 3}}/>
-
       <View style={styles.titleBox}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.desc}>{item.type}</Text>
         <Text style={styles.desc}>1x = ₴{item.price}</Text>
       </View>
-
       <View style={styles.butsBox}>
         <TouchableOpacity
-          onPress={() => {
-            data.deleteFromCartList(item)
-          }}>
+          onPress={() => data.deleteFromCartList(item)}>
           <Ionicons name="close-outline" size={24} color="#fff"/>
         </TouchableOpacity>
         <Text style={styles.desc}>{count}х</Text>
@@ -44,17 +37,17 @@ export default function CartItem({item}) {
               } else {
                 setCount(prevState => prevState - 1)
               }
-            }}><AntDesign name="minus" size={15} color="white" /></TouchableOpacity>
+            }}>
+            <AntDesign name="minus" size={15} color="white"/>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.plus}
-            onPress={() => {
-              setCount(prevState => prevState + 1)
-            }}><AntDesign name="plus" size={15} color="white" /></TouchableOpacity>
+            onPress={() => setCount(prevState => prevState + 1)}>
+            <AntDesign name="plus" size={15} color="white"/>
+          </TouchableOpacity>
         </View>
       </View>
-
     </TouchableOpacity>
-
   );
 };
 

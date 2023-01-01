@@ -7,17 +7,17 @@ import HomeItem from "./components/HomeItem";
 export default function Home() {
   const burgersData = PRODUCTS.filter(item => {
     if (item.type === 'Burger') {
-      return (item)
+      return item;
     }
   });
   const pizzasData = PRODUCTS.filter(item => {
     if (item.type === 'Pizza') {
-      return (item)
+      return item;
     }
   });
   const rollsData = PRODUCTS.filter(item => {
     if (item.type === 'Roll') {
-      return (item)
+      return item;
     }
   });
 
@@ -29,24 +29,21 @@ export default function Home() {
         data={burgersData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
-        style={{marginTop: 10, marginHorizontal: 10}}
-      />
+        style={{marginTop: 10, marginHorizontal: 10}}/>
       <Text style={styles.title}>Пиццы:</Text>
       <FlatList
         showsHorizontalScrollIndicator={false}
         data={pizzasData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
-        style={{marginTop: 10, marginHorizontal: 10}}
-      />
+        style={{marginTop: 10, marginHorizontal: 10}}/>
       <Text style={styles.title}>Роллы:</Text>
       <FlatList
         showsHorizontalScrollIndicator={false}
         data={rollsData}
         renderItem={({item}) => (<HomeItem item={item}/>)}
         horizontal={true}
-        style={{marginVertical: 10, marginHorizontal: 10}}
-      />
+        style={{marginVertical: 10, marginHorizontal: 10}}/>
       <StatusBar backgroundColor={nightBlue}/>
     </ScrollView>
   );

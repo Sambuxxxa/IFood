@@ -7,30 +7,20 @@ import ClearCart from "./components/ClearCart";
 import FinishedCart from "./components/FinishedCart";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-
 export default function Cart() {
-  const data = useContext(MainContext)
-  const cartList = data.cartList
-
+  const {cartList} = useContext(MainContext)
   const [isFinished, setIsFinished] = useState(false);
 
-
   if (cartList.length === 0) {
-    return (<ClearCart/>)
+    return <ClearCart/>
   } else {
     if (isFinished) {
-      return (
-        <FinishedCart setIsFinished={setIsFinished}/>
-      )
+      return <FinishedCart setIsFinished={setIsFinished}/>
     } else {
       return (
         <SafeAreaView style={styles.container}>
           <Text style={styles.title}>Корзина:</Text>
-
-          <FlatList data={cartList} renderItem={({item}) => (
-            <CartItem item={item}/>
-          )}/>
-
+          <FlatList data={cartList} renderItem={({item}) => <CartItem item={item}/>}/>
           <TouchableOpacity
             style={styles.containerBut}
             onPressOut={() => setIsFinished(true)}>
@@ -41,7 +31,6 @@ export default function Cart() {
       )
     }
   }
-
 }
 const styles = StyleSheet.create({
   container: {

@@ -13,25 +13,19 @@ export default function LikedItem({item}) {
       onPress={() => {
         data.setSelectedItem(item);
         data.setIsVisibleDM(true)
-      }}
-    >
+      }}>
       <View style={styles.mainBox}>
         <Image source={item.img} style={styles.img}/>
         <Text style={styles.title}>{item.title}</Text>
-
         <Text style={styles.title2}>₴{item.price}</Text>
-
         <View style={{top: -40}}><MainButton item={item}/></View>
         <TouchableOpacity
           style={[styles.butBox, {marginRight: 80, marginTop: 20}]}
-          onPress={() => {
-            data.deleteFromLikedList(item)
-          }}>
+          onPress={() => data.deleteFromLikedList(item)}>
           <Foundation name="heart" size={24} color={'red'}/>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
-
   );
 };
 

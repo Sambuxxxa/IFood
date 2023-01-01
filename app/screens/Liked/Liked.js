@@ -5,9 +5,9 @@ import {MainContext} from "../../../App";
 import LikedItem from "./components/LikedItem";
 
 export default function Liked() {
-  const data = useContext(MainContext)
+  const { likedList } = useContext(MainContext)
 
-  if (data.likedList.length === 0) {
+  if (likedList.length === 0) {
     return (
       <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
         <Image source={require('../../assets/images/heart.png')} style={styles.img} />
@@ -21,7 +21,7 @@ export default function Liked() {
       <View style={styles.container}>
         <Text style={styles.title}>Список предпочтений:</Text>
         <FlatList
-          data={data.likedList}
+          data={likedList}
           renderItem={({item}) => (<LikedItem item={item}/>)}
           numColumns={'2'}
           style={{backgroundColor: nightBlue}}

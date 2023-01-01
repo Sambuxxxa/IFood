@@ -6,7 +6,6 @@ import {nightBlue} from "../../data/COLORS";
 import SearchItem from "./components/SearchItem";
 
 export const SearchContext = React.createContext();
-
 export default function Search() {
   const [searchedList, setSearchedList] = useState(PRODUCTS);
 

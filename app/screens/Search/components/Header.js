@@ -7,14 +7,13 @@ import {PRODUCTS} from "../../../data/PRODUCTS";
 import {SearchContext} from "../Search";
 
 export default function Header() {
-
   const data = useContext(SearchContext)
-  function search(text) {
+  const search = (text) => {
     if (text === '') {
       data.setSearchedList(PRODUCTS)
     }
     data.setSearchedList(PRODUCTS.filter(item => {
-      return(item.title.toLowerCase().includes(text))
+      return (item.title.toLowerCase().includes(text))
     }))
   }
 
@@ -27,11 +26,7 @@ export default function Header() {
           placeholderTextColor={'grey'}
           style={styles.inp}
           caretHidden={true}
-          onChangeText={(text) => {
-            search(text.toLowerCase())
-          }}
-
-        />
+          onChangeText={(text) => search(text.toLowerCase())}/>
       </View>
       <StatusBar backgroundColor={nightBlue}/>
     </View>
@@ -58,5 +53,4 @@ const styles = StyleSheet.create({
     marginRight: 10,
     fontSize: 18,
   }
-
 });

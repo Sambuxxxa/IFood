@@ -6,7 +6,6 @@ import auth from "@react-native-firebase/auth";
 
 const LogIn = ({setLogIn}) => {
   const data = useContext(AuthContext)
-
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
@@ -26,7 +25,6 @@ const LogIn = ({setLogIn}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome back!</Text>
-
       <View style={styles.inpBox}>
         <TextInput
           value={email}
@@ -45,13 +43,11 @@ const LogIn = ({setLogIn}) => {
           secureTextEntry={true}
           style={[styles.inp, {borderTopWidth: 0.5, borderTopColor: '#fff'}]}/>
       </View>
-
       <TouchableOpacity
         onPress={() => Login()}
         style={styles.butBox}>
         <Text style={styles.butText}>Войти</Text>
       </TouchableOpacity>
-
       <View style={styles.bottomTextBox}>
         <Text style={{color: '#fff'}}>Ещё нету аккаунта? </Text>
         <TouchableOpacity
